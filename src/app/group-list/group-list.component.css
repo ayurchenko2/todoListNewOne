@@ -1,0 +1,54 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.groupTasks {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 12em;
+}
+.groupTasks li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  text-indent: 10px;
+  line-height: 25px;
+}
+.groupTasks li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.groupTasks li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.groupTasks .text {
+  position: relative;
+  top: -3px;
+}
+.addGroup {
+  width: 200px;
+}
+#addGroupbox {
+  width: 200px;
+  height: 25px;
+}
+.addGroupbutton {
+  width: 200px;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+.addGroupbutton:active {
+  background-color: #BBD8DC !important;
+  color: white;
+}

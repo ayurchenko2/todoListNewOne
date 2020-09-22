@@ -1,0 +1,43 @@
+<div *ngIf="groupList">
+  <h2>{{groupList.groupName}}:</h2>
+  <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="term">
+  </div>
+  <div>
+    <ul class="list-group">
+          <li class="list-group-item"  *ngFor="let item of doneRadioValues">
+            <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.value}}" (change)="onItemChange(item)"/>
+            {{item.name}}
+          </li>
+    </ul>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody id="taskTable">
+        <div *ngIf="radioSelected=='all'">
+          <tr *ngFor="let task of groupList.tasks | filter:term">
+            <td [ngClass]="task.done && 'strikethrough' || 'null'">{{task.name}}</td>
+            <td><input type="checkbox" [(ngModel)]="task.done" /></td>
+            {{ updateDoneTask() }}
+          </tr>
+        </div>
+        <div *ngIf="radioSelected!=='all'">
+          <tr *ngFor="let task of groupList.tasks | filter:'true'">
+            <td>{{task.name}}</td>
+            <td><input type="checkbox" [(ngModel)]="task.done" /></td>
+            {{ updateDoneTask() }}
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+  <div class="addTask">
+    <input class="addTaskBox" (keyup.enter)="addTask($event.target.value); $event.target.value=''" placeholder = "Add todo..." />
+  </div>
+</div>

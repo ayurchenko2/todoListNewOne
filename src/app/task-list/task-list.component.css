@@ -1,0 +1,10 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.strikethrough {
+    text-decoration: line-through;
+}

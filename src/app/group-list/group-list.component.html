@@ -1,0 +1,13 @@
+<h2>ToDo Lists</h2>
+<ul class="groupTasks">
+  <li *ngFor="let groupTask of groupTasks"
+  [class.selected]="groupTask === selectedGroupTasks"
+  (click)="onSelect(groupTask)">
+    {{groupTask.groupName+' ('+groupTask.totalDone+'/'+groupTask.tasks.length+')'}}
+  </li>
+</ul>
+<div class="addGroup">
+  <input #addGroupBox id="addGroupbox" placeholder="New list..."/>
+  <button class="addGroupbutton" (click)="addGroup(addGroupBox.value); addGroupBox.value=''">Create New Group</button>
+</div>
+<app-task-list [groupList]="selectedGroupTasks"></app-task-list>
